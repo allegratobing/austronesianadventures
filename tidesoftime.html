@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<div class="gif-banner">
+  <div class="banner-content">
+    <h1>Tides of Time</h1>
+    <header>
+<nav class="navbar"></nav>
+    <ul class="nav-links">
+        <li><a href="austronesianadventures.html">Home</a></li>
+        <li><a href="tidesoftime.html">Tides of Time</a></li>
+        <li><a href="patternsofthepacific.html">Patterns of the Pacific</a></li>
+    </ul>
+</nav>
+</header>
+    <link rel="stylesheet" href="style.css">
+  </div>
+</div>
+
+    <head>
+        <meta name="description" content="Tides of Time!">
+        <meta name="author" content="Tides of Time!">
+
+        <title>Tides of Time!</title>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tides of Time</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Sancreek&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+        <p> This page of our Austronesian Adventures is dedicated to the history and expansion of the Austronesian peoples. The Austronesians are a group of people who speak Austronesian languages and are spread across a vast area from Madagascar to Easter Island, and from Taiwan to New Zealand. They are known for their seafaring skills and have a rich cultural heritage that includes unique art, music, and traditions. The Austronesians are believed to have originated in Taiwan and began their expansion around 3000 BCE. They traveled across the Pacific and Indian Oceans, settling in various islands and regions along the way.
+</body>
+</html>
+
+    <style>
+        body {
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* Top Information Bar */
+        #info-bar {
+            width: 100%;
+            max-width: 1000px;
+            background-color: #FEEDE1;
+            border-left: 6px solid #FFB021;
+            padding: 18px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        #info-title {
+            color: #03817B;
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+        }
+
+        #info-description {
+            color: #444;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Container for Map and Overlay Buttons */
+.map-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    border: 3px solid #FEEDE1;
+    min-height: 400px; /* Ensures the container expands even if image is loading */
+}
+
+        /* Background Image */
+        .map-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Interactive Location Points/Buttons */
+        .map-point {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background-color: #FFB021;
+            border: 3px solid #FEEDE1;
+            border-radius: 50%;
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+            z-index: 10;
+        }
+
+        /* Pulse animation for markers */
+        .map-point::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            border: 2px solid #FFB021;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.8); opacity: 0; }
+        }
+
+        .map-point:hover {
+            transform: translate(-50%, -50%) scale(1.3);
+            background-color: #FEEDE1;
+        }
+
+        .map-point.active {
+            background-color: #03817B;
+            border-color: #FFB021;
+            transform: translate(-50%, -50%) scale(1.4);
+        }
+
+        /* Point Label Tooltips on Hover */
+        .map-point .tooltip {
+            visibility: hidden;
+            width: max-content;
+            background-color: #03817B;
+            color: #FEEDE1;
+            text-align: center;
+            padding: 4px 8px;
+            border-radius: 4px;
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            font-weight: bold;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .map-point:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Info Bar Top Display -->
+    <div id="info-bar">
+        <h2 id="info-title">Click a Point on the Map</h2>
+        <p id="info-description">Select any glowing marker across Taiwan, Southeast Asia, or the Pacific to learn about key sites, pottery types, and maritime routes of the Austronesian migration.</p>
+    </div>
+
+    <!-- Map Area with Image Background -->
+    <div class="map-container">
+        <!-- Replace 'austronesianexpansion.jpg' with your local image file name if different -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/The_proposed_route_of_Austroasiatic_and_Austronesian_migration_into_Indonesia_and_the_geographic_distribution_of_sites_that_have_produced_red-slipped_and_cord-marked_pottery.png" alt="Austronesian Expansion Map">
+
+<!-- Interactive Location Points -->
+        <button class="map-point" style="top: 10%; left: 47%;" onclick="showInfo('taiwan', this)">
+            <span class="tooltip">Taiwan</span>
+        </button>
+        <button class="map-point" style="top: 27%; left: 47.5%;" onclick="showInfo('luzon', this)">
+            <span class="tooltip">Luzon</span>
+        </button>
+        <button class="map-point" style="top: 45%; left: 54.5%;" onclick="showInfo('mindanao', this)">
+            <span class="tooltip">Mindanao</span>
+        </button>
+        <button class="map-point" style="top: 59%; left: 41%;" onclick="showInfo('niah', this)">
+            <span class="tooltip">Niah Caves (Borneo)</span>
+        </button>
+        <button class="map-point" style="top: 67%; left: 49.5%;" onclick="showInfo('sulawesi', this)">
+            <span class="tooltip">Sulawesi</span>
+        </button>
+        <button class="map-point" style="top: 68%; left: 24%;" onclick="showInfo('sumatra', this)">
+            <span class="tooltip">Sumatra (Batak)</span>
+        </button>
+        <button class="map-point" style="top: 73%; left: 88.5%;" onclick="showInfo('bismarck', this)">
+            <span class="tooltip">Bismarck Archipelago</span>
+        </button>
+        <button class="map-point" style="top: 82%; left: 25.5%;" onclick="showInfo('buni', this)">
+            <span class="tooltip">Buni (Java)</span>
+        </button>
+    </div>
+
+    <!-- Embedded JavaScript -->
+    <script>
+        const locationData = {
+            taiwan: {
+                title: "Taiwan (Origin Point) - c. 3000-2000 BCE",
+                desc: "The homeland of the Austronesian expansion. Starting around 3000-2000 BCE, early maritime navigators set sail southwards from Taiwan, developing specialized outrigger canoes and seafaring techniques."
+            },
+            luzon: {
+                title: "Luzon (Northern Philippines) - c. 2200-1500 BCE",
+                desc: "One of the earliest stops in the outward sea route from Taiwan. Archaeological sites here show early Neolithic red-slipping pottery traditions carried by expanding coastal communities."
+            },
+            mindanao: {
+                title: "Mindanao (Southern Philippines) - c. 1500-1000 BCE",
+                desc: "A central hub where expansion routes split east toward Oceania (Bismarck Archipelago) and south toward the Indonesian archipelago (Sulawesi/Borneo)."
+            },
+            niah: {
+                title: "Niah Caves (Borneo) - c. 1500-1000 BCE",
+                desc: "A key archaeological site showing transition and contact zone traits, including evidence of cord-marked pottery styles alongside early trade routes."
+            },
+            sulawesi: {
+                title: "Sulawesi (Minanga Sipakko & Kamassi) - c. 1500-1000 BCE",
+                desc: "Notable locations showing Neolithic red-slipped pottery traditions. Sulawesi served as a vital stepping stone into eastern Indonesia and Remote Oceania."
+            },
+            sumatra: {
+                title: "Sumatra (Batak Region) - c. 1000-500 BCE",
+                desc: "Sumatra plays a major role in the western expansion route. Key sites like Lolo Gedang and Silabe & Harimau Caves contain palaeometallic red-slipped pottery traditions. The Batak people of northern Sumatra retain rich Austronesian linguistic roots, megalithic architectural traditions, and distinctive cultural heritage."
+            },
+            bismarck: {
+                title: "Bismarck Archipelago (Pacific) - c. 1500-1200 BCE",
+                desc: "Representing the eastward voyage into Remote Oceania. This branch developed into the Lapita cultural complex, ancestral to modern Polynesians and Micronesians."
+            },
+            buni: {
+                title: "Buni Culture (Java) - c. 400-100 BCE",
+                desc: "Located on Java, this region features Palaeometallic red-slipped pottery and marks key maritime interactions across western Indonesia."
+            }
+        };
+
+        function showInfo(locationKey, element) {
+            const info = locationData[locationKey];
+            if (info) {
+                document.getElementById('info-title').innerText = info.title;
+                document.getElementById('info-description').innerText = info.desc;
+
+                const allPoints = document.querySelectorAll('.map-point');
+                allPoints.forEach(pt => pt.classList.remove('active'));
+
+                element.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
+
+<footer>
+  <p>© 2026 Austronesian Adventures | MYP Digital Design Unit 1 by Allegra Tobing</p>
+</footer>
